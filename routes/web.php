@@ -3,12 +3,14 @@
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, "index"])->name("welcome");
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $notes = Note::query()->orderBy('created_at', 'desc')->paginate(12);
+    return view('dashboard', ['notes' => $notes]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

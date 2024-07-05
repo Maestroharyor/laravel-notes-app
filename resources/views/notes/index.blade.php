@@ -1,32 +1,32 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                 My Notes
             </h2>
             <a href="{{ route('notes.create') }}"
-                class="text-sm text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg px-5 py-2.5 text-center transition-all duration-300 ease-in-out">Create
+                class="inline-flex px-4 py-2 text-sm font-medium text-white rounded-lg bg-brand-red hover:bg-red-700 focus:ring-4 focus:ring-purple-300 lg:px-5 lg:py-3">Create
                 new note</a>
         </div>
 
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 gap-8 mx-auto max-w-7xl sm:px-6 lg:px-8 md:grid-cols-2">
             @foreach ($notes as $note)
                 <div
-                    class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg border-b-4 border-gray-300 dark:border-gray-700 hover:-translate-y-2 transition duration-300 block">
-                    <div class="p-6 text-gray-900 dark:text-gray-100  flex flex-col gap-4">
-                        <div class="flex  justify-between items-center gap-2">
+                    class="block overflow-hidden transition duration-300 bg-white border-b-4 border-gray-300 shadow-sm dark:bg-gray-800 sm:rounded-lg dark:border-gray-700 hover:-translate-y-2">
+                    <div class="flex flex-col gap-4 p-6 text-gray-900 dark:text-gray-100">
+                        <div class="flex items-center justify-between gap-2">
                             <div>
-                                <a class="font-bold text-yellow-500 text-lg"
+                                <a class="text-lg font-bold text-blue-900 dark:text-yellow-500"
                                     href="{{ route('notes.show', $note->id) }}">
                                     <h3>{{ $note->title }}</h3>
                                 </a>
                             </div>
                             <div class="inline-flex">
                                 <a href="{{ route('notes.edit', $note->id) }}"
-                                    class=" text-blue-400 hover:text-blue-500 transition-all duration-300 ease-in-out">
+                                    class="text-blue-400 transition-all duration-300 ease-in-out hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +34,7 @@
                                     </svg>
                                 </a>
                                 <a href="{{ route('notes.destroy', $note->id) }}"
-                                    class=" text-red-400 hover:text-red-500 transition-all duration-300 ease-in-out">
+                                    class="text-red-400 transition-all duration-300 ease-in-out hover:text-red-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -52,7 +52,7 @@
 
                         <div>
                             <a href="{{ route('notes.show', $note->id) }}"
-                                class="text-blue-400 hover:text-blue-500 transition-all duration-300 ease-in-out"> See
+                                class="text-blue-400 transition-all duration-300 ease-in-out hover:text-blue-500"> See
                                 note
                                 details...</a>
                         </div>
