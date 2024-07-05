@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Note;
+use App\Models\RandomQuote;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Note::factory(100)->create();
+
+        RandomQuote::factory(31)->create();
     }
 }

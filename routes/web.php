@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Note;
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/notes/{id}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
     Route::resource('notes', NoteController::class);
+    Route::resource('posts', PostController::class);
 });
 
 require __DIR__ . '/auth.php';
